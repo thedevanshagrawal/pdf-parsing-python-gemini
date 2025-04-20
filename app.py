@@ -1,24 +1,23 @@
 from flask import Flask, request, jsonify
 import pdfplumber
+from dotenv import load_dotenv
 import os
 import google.generativeai as genai
 from openai import OpenAI
 
+load_dotenv()
 
 app = Flask(__name__)
 
+api_key = os.getenv("GEMINI_API_KEY")
+base_url = os.getenv("GEMINI_BASE_URL")
+
+
 # Configure OpenAI client (Gemini API)
 client = OpenAI(
-    api_key="AIzaSyAN0WZ8KF8ZOaLvXfSJwe0ceUNGB_TIkT8",
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    api_key=api_key,
+    base_url=base_url
 )
-
-# Setup Gemini API
-GEMINI_API_KEY = os.getenv(
-    "GEMINI_API_KEY"
-)  # Make sure to set this in your environment or replace directly
-genai.configure(api_key="AIzaSyAN0WZ8KF8ZOaLvXfSJwe0ceUNGB_TIkT8")
-model = genai.GenerativeModel("gemini-2.0-flash")
 
 
 @app.route("/analyze-resume", methods=["POST"])
