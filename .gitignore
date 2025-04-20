@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.env
+
+# .flaskenv or config files that could contain secrets (e.g., API keys)
+.flaskenv
+*.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies folder
+node_modules/
